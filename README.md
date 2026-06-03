@@ -16,6 +16,9 @@ Financial institutions require reliable systems to manage loans, track repayment
 The platform was developed as part of Advanced Database Management Systems coursework at Arizona State University and demonstrates practical database engineering concepts commonly used in banking and financial services.
 
 ---
+## Entity Relationship Diagram
+
+![ERD](screenshots/erd.png)
 
 ## Architecture
 
