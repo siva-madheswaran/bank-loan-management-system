@@ -1,6 +1,8 @@
 # Bank Loan Management System
 
-A SQL-based loan management and analytics platform designed to manage borrowers, loans, repayments, collateral tracking, and risk monitoring. The system demonstrates database design, transactional processing, audit logging, and business analytics using SQL Server.
+A SQL-based loan management and analytics platform designed to manage borrowers, loans, repayments, collateral tracking, and risk monitoring. The system demonstrates database design, transactional processing, audit logging, and business analytics using Microsoft SQL Server.
+
+---
 
 ## Overview
 
@@ -13,26 +15,13 @@ Financial institutions require reliable systems to manage loans, track repayment
 * Loan performance analytics
 * Risk assessment reporting
 
-The platform was developed as part of Advanced Database Management Systems coursework at Arizona State University and demonstrates practical database engineering concepts commonly used in banking and financial services.
+Developed as part of Advanced Database Management Systems coursework at Arizona State University, this project demonstrates practical database engineering concepts commonly used in banking and financial services.
 
 ---
+
 ## Entity Relationship Diagram
 
 ![ERD](screenshots/erd.png)
-
-## Architecture
-
-### Core Entities
-
-* Branches
-* Loan Officers
-* Borrowers
-* Loans
-* Repayments
-* Repayment Schedules
-* Collateral
-
-The database follows a normalized relational design with primary keys, foreign keys, constraints, stored procedures, functions, triggers, and reporting views.
 
 ---
 
@@ -40,31 +29,31 @@ The database follows a normalized relational design with primary keys, foreign k
 
 ### Loan Management
 
-* Create and manage borrower records
+* Manage borrower and loan records
 * Track active, closed, and defaulted loans
 * Associate loans with branches and loan officers
 
 ### Repayment Tracking
 
-* Record loan repayments
+* Record and monitor repayments
 * Maintain repayment schedules
-* Monitor payment history
+* Analyze repayment performance
 
 ### Collateral Management
 
 * Store collateral details
 * Track collateral value and type
-* Associate assets with loans
+* Link collateral to loans
 
 ### Audit Logging
 
-Implemented database triggers to automatically track:
+Database trigger automatically tracks:
 
 * INSERT operations
 * UPDATE operations
 * DELETE operations
 
-Audit logs include:
+Audit logs capture:
 
 * Event type
 * Timestamp
@@ -72,21 +61,21 @@ Audit logs include:
 * Updated values
 * User information
 
-### Business Analytics
+### Analytics & Reporting
 
-Created analytical SQL views for:
+Provides analytical views for:
 
 #### Active Loans by Borrower
 
-Provides visibility into all active loans and associated borrowers.
+Tracks all currently active loans and associated borrowers.
 
 #### Repayment Summary
 
-Aggregates repayment activity and cash-flow information.
+Aggregates repayment activity to support financial analysis.
 
 #### Overdue Installments
 
-Identifies borrowers with overdue payments for proactive risk management.
+Identifies overdue payments to support proactive risk management.
 
 ---
 
@@ -96,17 +85,23 @@ Identifies borrowers with overdue payments for proactive risk management.
 
 `sp_InsertRepayment`
 
-Automates insertion of repayment transactions into the system.
+Automates insertion of repayment transactions.
 
 ### User Defined Function
 
 `fn_CalculateEMI`
 
-Calculates Equated Monthly Installments (EMI) using principal amount, interest rate, and repayment duration.
+Calculates Equated Monthly Installments (EMI) based on principal amount, interest rate, and repayment period.
+
+### Audit Trigger
+
+`trg_BranchesAudit`
+
+Maintains a complete audit trail of branch table modifications.
 
 ### Cursor-Based Risk Analysis
 
-Implements borrower risk evaluation by identifying customers with multiple active loans.
+Demonstrates borrower risk identification by detecting customers with multiple loans.
 
 ---
 
@@ -124,20 +119,47 @@ Implements borrower risk evaluation by identifying customers with multiple activ
 
 ## Project Structure
 
-- `sql/01_schema.sql` - database creation and table definitions
-- `sql/02_seed_data.sql` - sample data inserts
-- `sql/03_views.sql` - reporting and analytics views
-- `sql/04_audit_trigger.sql` - audit logging table and trigger
-- `sql/05_procedure_function.sql` - stored procedure and EMI function
-- `sql/06_cursor_demo.sql` - cursor-based risk analysis demo
+```text
+bank-loan-management-system/
+│
+├── sql/
+│   ├── 01_schema.sql
+│   ├── 02_seed_data.sql
+│   ├── 03_views.sql
+│   ├── 04_audit_trigger.sql
+│   ├── 05_procedure_function.sql
+│   └── 06_cursor_demo.sql
+│
+├── screenshots/
+│   └── erd.png
+│
+├── docs/
+│   └── project_report.pdf
+│
+├── bank_loan_management_system.sql
+└── README.md
+```
 
-## Sample Analytics Questions Answered
+### SQL Modules
+
+| File                      | Purpose                        |
+| ------------------------- | ------------------------------ |
+| 01_schema.sql             | Database and table definitions |
+| 02_seed_data.sql          | Sample data population         |
+| 03_views.sql              | Reporting and analytics views  |
+| 04_audit_trigger.sql      | Audit logging implementation   |
+| 05_procedure_function.sql | Stored procedure and UDF       |
+| 06_cursor_demo.sql        | Risk analysis cursor example   |
+
+---
+
+## Sample Business Questions Answered
 
 * Which borrowers currently have active loans?
-* Which repayments were made using cash?
-* Which installments are overdue?
-* Which borrowers may represent higher lending risk?
-* What is the expected EMI for a given loan?
+* Which customers are overdue on repayments?
+* How much has each borrower repaid?
+* Which borrowers may represent elevated lending risk?
+* What is the expected EMI for a specific loan?
 
 ---
 
@@ -147,10 +169,12 @@ This project strengthened practical experience in:
 
 * Relational database design
 * SQL query optimization
+* Financial data modeling
 * Data integrity enforcement
 * Audit and compliance mechanisms
-* Financial data modeling
 * Analytical reporting
+* Stored procedures and triggers
+* Database programming with T-SQL
 
 ---
 
