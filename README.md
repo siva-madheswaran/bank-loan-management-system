@@ -122,13 +122,15 @@ Implements borrower risk evaluation by identifying customers with multiple activ
 
 ---
 
-## Repository Structure
+## Project Structure
+
 - `sql/01_schema.sql` - database creation and table definitions
 - `sql/02_seed_data.sql` - sample data inserts
 - `sql/03_views.sql` - reporting and analytics views
 - `sql/04_audit_trigger.sql` - audit logging table and trigger
 - `sql/05_procedure_function.sql` - stored procedure and EMI function
 - `sql/06_cursor_demo.sql` - cursor-based risk analysis demo
+
 ## Sample Analytics Questions Answered
 
 * Which borrowers currently have active loans?
