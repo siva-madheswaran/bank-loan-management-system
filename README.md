@@ -68,14 +68,22 @@ Provides analytical views for:
 #### Active Loans by Borrower
 
 Tracks all currently active loans and associated borrowers.
+![Active Loans](screenshots/active_loans_report.png)
 
 #### Repayment Summary
 
 Aggregates repayment activity to support financial analysis.
+![Repayment Summary](screenshots/repayment_summary.png)
 
 #### Overdue Installments
 
 Identifies overdue payments to support proactive risk management.
+![Overdue Installments](screenshots/overdue_installments.png)
+
+### Audit Log
+
+![Audit Log](screenshots/audit_log.png)
+
 
 ---
 
